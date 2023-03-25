@@ -19,7 +19,7 @@ Install with `git clone`
 ## Usage/Examples
 
 ```bash
-node udp.mjs [host] [port, (0 for random), [size, (0 for random)], [time] [threads]
+node udp.mjs [host] [port, (0 for random)] [size, (0 for random)] [time] [threads]
 ```
 
 
