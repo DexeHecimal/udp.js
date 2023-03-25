@@ -11,9 +11,9 @@ A proof of concept User Datagram Protocol (UDP) flood coded in the programming l
 Install with `git clone`
 
 ```bash
-  # Planning to convert to a npm package soon...
   npm i cluster
   git clone https://github.com/DexeHecimal/udp.js.git; cd udp.js
+  # Planning to convert to a npm package soon...
 ```
 
     
