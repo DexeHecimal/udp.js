@@ -1,4 +1,4 @@
-A proof of concept User Datagram Protocol (UDP) flood coded in the programming language NodeJS. This attack method was developed as part of an experimental approach, and during the testing phase, all attacks were strictly executed within a controlled environment. It is worth noting that this script generates data randomly and transmits it to the designated target.
+A proof of concept User Datagram Protocol (UDP) flood coded in the programming language NodeJS. This attack method was developed as part of an experimental approach, and during the testing phase, all attacks were strictly executed within a controlled environment. It is worth noting that this script generates data randomly and transmits it to the designated target. It will soon be available to utilize as an npm package.
 
 ## Features
 
@@ -13,7 +13,6 @@ Install with `git clone`
 ```bash
   npm i cluster
   git clone https://github.com/DexeHecimal/udp.js.git; cd udp.js
-  # Planning to convert to a npm package soon...
 ```
 
     
