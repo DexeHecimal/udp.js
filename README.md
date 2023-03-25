@@ -28,7 +28,7 @@ node udp.mjs [host] [port, (0 for random), [size, (0 for random)], [time] [threa
 
 ## License 
 
-> Copyright (C) 2012 Afshin Mehrabani (afshin.meh@gmail.com)
+> Copyright (C) 2023 Zachery T. Eritano (eritanozach@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
