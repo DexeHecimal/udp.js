@@ -7,8 +7,7 @@ if (cluster.isPrimary) {
     if (process.argv.length < 6) {
         console.log(`Usage: node ${process.argv[1]} [host] [port, (0 for random)] [size, (0 for random)] [time] [extra-threads]`);
         process.exit(1);
-    }
-    else {
+    } else {
         console.log(`Host: ${process.argv[2]}\nPort: ${process.argv[3] == 0 ? "random" : process.argv[3]}\nSize: ${process.argv[4] == 0 ? "random" : process.argv[4]}\nTime: ${process.argv[5]}\nThreads: ${process.argv[6]}`);
     }
 
