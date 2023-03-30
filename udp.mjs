@@ -1,4 +1,4 @@
-// Must run with NodeJS 14 or later.
+// Must run with NodeJS 16, or later. (tested with node version 18.15).
 import dgram from 'node:dgram';
 import cluster from 'node:cluster';
 const sock = dgram.createSocket('udp4');
