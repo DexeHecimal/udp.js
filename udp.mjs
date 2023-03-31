@@ -43,7 +43,8 @@ if (cluster.isPrimary) {
         worker.setMaxListeners(0);
         worker.send({ message: "start" });
     }
-
+    
+    // instructions for future process threads.
     cluster.on('exit', (worker, code, signal) => {
         console.log(`Worker ${worker.process.pid} died with code ${code} and signal ${signal}`);
         const newWorker = cluster.fork();
