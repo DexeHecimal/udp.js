@@ -1,3 +1,8 @@
+/*
+    Must run with Node version 16.x.x or later. ESX mode requires a minimum of version 14+.
+    - Fully featured string to destination user datagram flood.
+*/
+
 import dgram from 'node:dgram';
 import cluster from 'node:cluster';
 const sock = dgram.createSocket('udp4');
