@@ -2,6 +2,7 @@ import dgram from 'node:dgram';
 import cluster from 'node:cluster';
 const sock = dgram.createSocket('udp4');
 
+// if the user specifies 0, we will modify the value of our process arguments randomly.
 process.argv[3] = process.argv[3] == 0 ? Math.floor(Math.random() * (65535 - 1024 + 1)) + 1024 : process.argv[3];
 process.argv[4] = process.argv[4] == 0 ? Math.floor(Math.random() * (1428 - 1024 + 1)) + 5 : process.argv[4];
 
