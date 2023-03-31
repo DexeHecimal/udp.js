@@ -4,7 +4,7 @@
 */
 
 import dgram from 'node:dgram';
-import cluster from 'node:cluster';
+import cluster from 'node:cluster'; // multi-threading library.
 const sock = dgram.createSocket('udp4');
 
 // if the user specifies 0, we will modify the value of our process arguments randomly.
