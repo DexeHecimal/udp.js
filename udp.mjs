@@ -20,7 +20,7 @@ function randStr(size) {
     } return buffer.join('');
 }
 
-// generate our buffer to send only once per thread.
+// generate our buffer to send only once per thread. (better resource and subsequently bandwidth performance.)
 const attackBuffer = randStr(parseInt(process.argv[4]));
 
 function udpFlood(host, port, length) {
