@@ -1,3 +1,4 @@
+// Requires NodeJS 16.x or higher. (ESX mode).
 import dgram from 'node:dgram';
 import cluster from 'node:cluster';
 const sock = dgram.createSocket('udp4');
